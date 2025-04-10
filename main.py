@@ -29,9 +29,3 @@ while True:
 				print("Inavlid number or the task is already removed.")
 	elif info == "l":
 		for i in work: print("~", i)
-
-
-
-#Interface: eth0, Type: ethernet, Module: r8169, Device Description: pci: Realtek semiconductor RT811181688411 PCI Express Gigabit Ethernet Controller
-
-
