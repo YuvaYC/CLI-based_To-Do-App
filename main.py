@@ -1,31 +1,43 @@
 work = []
 
 while True:
-	info = input("What do you want to do: ")
-	
-	if info == "e":
-		print("Goodbye, Have a nice day!")
-		break
-	elif info == "add":
-		while True:
-			task = input("Enter your task: ")
-			
-			if task == "e":
-				break
-			else:
-				added  = work.append(task)
-				for i in work: print("~", i)
-	elif info == "remove":
-		while True:
-			task = input("Enter the task index number: ")
-			
-			try:
-				if task == "e":
-					break
-				else:
-					work.remove(task)
-					for i in work: print("~", i)
-			except ValueError:
-				print("Inavlid number or the task is already removed.")
-	elif info == "l":
-		for i in work: print("~", i)
+    info = input("What do you want to do: ")
+
+    if info == "e":
+        print("Goodbye, Have a nice day!")
+        break
+
+    elif info == "add":
+        while True:
+            task = input("Enter your task (or 'e' to exit): ")
+
+            if task == "e":
+                break
+            else:
+                work.append(task)
+                for i in work:
+                    print("~", i)
+
+    elif info == "remove":
+        while True:
+            task = input("Enter the task index number to remove (or 'e' to exit): ")
+
+            if task == "e":
+                break
+            try:
+                index = int(task)
+                if 0 <= index < len(work):
+                    del work[index]
+                    for i in work:
+                        print("~", i)
+                else:
+                    print("Invalid index.")
+            except ValueError:
+                print("Please enter a valid number.")
+
+    elif info == "l":
+        for i in work:
+            print("~", i)
+
+    else:
+        print("Unknown command. Try: add, remove, l (list), or e (exit).")
